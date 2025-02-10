@@ -8,3 +8,5 @@
 # Env
 !**/.env.example
 **/.env
+
+.idea
