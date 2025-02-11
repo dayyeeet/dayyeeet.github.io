@@ -1,7 +1,9 @@
 import type {Route} from "./+types/home";
-import Hero from "~/components/Hero";
+import Hero from "~/components/hero";
 import {FloatingNav} from "~/components/ui/floating-navbar";
-import {BookMarkedIcon} from "lucide-react";
+import {BookMarkedIcon, BriefcaseBusinessIcon, BuildingIcon, ContactIcon, FolderGit2Icon} from "lucide-react";
+import Projects from "~/components/projects";
+import {Separator} from "~/components/ui/separator";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -17,16 +19,18 @@ const navItems = [{
 }, {
     name: "Projects",
     link: "projects",
-    icon: <BookMarkedIcon className={"w-10 text-foreground"}/>,
+    icon: <FolderGit2Icon className={"w-10 text-foreground"}/>,
 }, {
-    name: "About",
-    link: "about",
-    icon: <BookMarkedIcon className={"w-10 text-foreground"}/>,
+    name: "Contact",
+    link: "contact",
+    icon: <ContactIcon className={"w-10 text-foreground"}/>,
 }]
 
 export default function Home() {
     return <div className={"bg-background"}>
         <FloatingNav navItems={navItems}/>
         <Hero/>
+        <Separator className={"mb-10"} orientation={"horizontal"}/>
+        <Projects/>
     </div>;
 }
