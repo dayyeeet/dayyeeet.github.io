@@ -1,0 +1,77 @@
+import React from "react";
+import {Badge} from "~/components/ui/badge";
+import GitHubIcon from "~/components/icons/github-icon";
+import {Tooltip, TooltipContent, TooltipTrigger} from "~/components/ui/tooltip";
+import {LinkIcon} from "lucide-react";
+
+export type ProjectProps = {
+    name: string;
+    tools: { name: string, icon: React.FC }[];
+    timeframe: string;
+    media: string;
+    video?: boolean;
+    description: string;
+    codeLink: string;
+    link: string;
+    role: string;
+}
+
+export function Project(props: ProjectProps) {
+    return <div className={"text-left h-full ml-10 py-10 sm:m-auto"}>
+        <div className={"space-y-4"}>
+            <div className={"flex gap-10 items-end flex-wrap"}>
+                <div
+                    className={"relative rounded-xl overflow-hidden hover:ring-2 ring-secondary-foreground cursor-pointer border-muted border-2"}>
+                    {!props.video ?
+                        <img className={"aspect-video sm:w-128 object-cover"} src={props.media} alt={props.name}/>
+                        :
+                        <video className={"aspect-video sm:w-128 object-cover"} controls>
+                            <source src={props.media} type={"video/mp4"}/>
+                        </video>
+                    }
+
+                    {!props.video ?
+                        <a href={props.link}
+                           className={"hover:bg-black/40 absolute top-0 left-0 h-full w-full sm:w-128 rounded-xl transition-all"}/>
+                        : <a href={props.link}
+                             className={"rounded-full aspect-square flex items-center justify-center w-10 bg-primary absolute top-2 left-2 cursor-pointer hover:bg-primary/60"}><LinkIcon
+                            className={"text-primary-foreground"}/></a>}
+                </div>
+                <div className={"space-y-4"}>
+                    <div className={"flex gap-2 items-center"}>
+                        {props.tools.map(value => {
+                            return (<Tooltip>
+                                <TooltipTrigger>
+                                    <value.icon/>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    {value.name}
+                                </TooltipContent>
+                            </Tooltip>)
+                        })}
+                    </div>
+                    <div className={"tracking-wide text-xl font-serif"}>
+                        {props.role}
+                    </div>
+                </div>
+
+            </div>
+
+            <div className={"flex items-top gap-3 sm:gap-5 py-3 flex-wrap"}>
+                <a href={props.codeLink} className={"flex items-center justify-center"}>
+                    <GitHubIcon width={34} height={32} className={"text-foreground hover:text-foreground/70"}/>
+                </a>
+                <div className={"text-foreground text-2xl sm:text-4xl font-bold tracking-tight"}>
+                    {props.name}
+                </div>
+                <div className={"flex items-center justify-center"}>
+                    <Badge variant={"default"}>{props.timeframe}</Badge>
+                </div>
+            </div>
+        </div>
+
+        <div className={"text-foreground/70 text-sm sm:text-xl tracking-wide text-wrap"}>
+            {props.description}
+        </div>
+    </div>
+}
