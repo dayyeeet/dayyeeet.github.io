@@ -8,10 +8,10 @@ export default function Hero() {
         <div className={"w-full z-20 space-y-6 px-10 sm:px-20"}>
             <PseudoCode pre={["bg-sky-600 w-24"]} post={["bg-sky-600 w-24"]} children={((start) => (
                 <div className={"space-y-4 relative"}>
-                    <PseudoCode className={"sm:pb-0"} pre={["bg-amber-600 w-32", "bg-red-400 w-42", "bg-amber-600 w-8"]}
+                    <PseudoCode className={"pb-5 sm:pb-0"} pre={["bg-amber-600 w-32", "bg-red-400 w-42", "bg-amber-600 w-8"]}
                                 post={["bg-amber-600 w-32"]} startDelay={start} children={(start) => (
                         <div className={"py-5 h-[18rem] sm:h-auto"}>
-                            <div className={"absolute w-[80vw] right-0 mx-5 sm:mx-auto sm:relative"}>
+                            <div className={"absolute w-[80vw] right-0 mx-10 sm:mx-auto sm:relative"}>
                                 <div className={"text-foreground text-5xl xl:text-7xl tracking-tight font-semibold"}>
                                     Hi, I&apos;m <span
                                     className={"underline decoration-sky-500 font-bold"}>David Cappell</span>
