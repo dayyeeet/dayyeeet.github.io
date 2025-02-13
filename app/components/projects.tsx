@@ -1,12 +1,14 @@
-import {Project} from "~/components/project";
+import {Project, type ProjectProps} from "~/components/project";
 import SqlIcon from "~/components/icons/sql-icon";
 import ReactIcon from "~/components/icons/react-icon";
 import GrpcIcon from "~/components/icons/grpc-icon";
 import {DockerIcon} from "~/components/icons/docker-icon";
-import React from "react";
+import React, {useState} from "react";
 import {KotlinIcon} from "~/components/icons/kotlin-icon";
 import {CSharpIcon} from "~/components/icons/csharp-icon";
 import {UnityIcon} from "~/components/icons/unity-icon";
+import {SearchInput} from "~/components/ui/search-input";
+import {search} from "~/lib/search";
 
 const simpleCloudProject = {
     timeframe: "2024 - now",
@@ -28,7 +30,7 @@ const simpleCloudProject = {
         "independent crash handling, a component-based architecture for customizing your own infrastructure, " +
         "support for Docker, and extensions through plugins and microservices.",
     role: "Core Maintainer",
-}
+} satisfies ProjectProps
 
 const uneasyTravelProject = {
     timeframe: "2024",
@@ -47,12 +49,22 @@ const uneasyTravelProject = {
         "However, danger lurks at every corner: terrifying creatures await to hinder your progress. " +
         "Will you gather enough flowers to fuel your escape, or will the creatures be your downfall?",
     role: "Project Leader, World Generation",
-}
+} satisfies ProjectProps
+
+const projectList = [simpleCloudProject, uneasyTravelProject]
 
 
 export default function Projects() {
-    return <div id={"projects"} className={"py-5 px-5 sm:px-20 space-y-6 grid grid-cols-1 md:grid-cols-2 sm:gap-20"}>
-        <Project {...simpleCloudProject} />
-        <Project {...uneasyTravelProject} />
+    const [projects, setProjects] = useState<ProjectProps[]>(projectList)
+    const callback = (value: string) => {
+        setProjects(search(value, projects))
+    }
+    return <div id={"projects"} className={"py-5 px-5 sm:px-20 "}>
+        {projects.length > 4 ? <SearchInput className={"w-full sm:max-w-1/2 lg:max-w-96"} callback={callback}/> : null}
+        <div className={"space-y-6 grid grid-cols-1 md:grid-cols-2 sm:gap-20"}>
+            {projects.map(it => (
+                <Project key={it.name} {...it}/>
+            ))}
+        </div>
     </div>
 }

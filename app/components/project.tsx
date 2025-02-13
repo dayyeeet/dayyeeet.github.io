@@ -39,7 +39,7 @@ export function Project(props: ProjectProps) {
             <div className={"space-y-4"}>
                 <div className={"flex gap-2 items-center"}>
                     {props.tools.map(value => {
-                        return (<Tooltip>
+                        return (<Tooltip key={value.name}>
                             <TooltipTrigger>
                                 <value.icon/>
                             </TooltipTrigger>
