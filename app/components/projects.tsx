@@ -1,4 +1,3 @@
-import {TracingBeam} from "~/components/ui/tracing-beam";
 import {Project} from "~/components/project";
 import SqlIcon from "~/components/icons/sql-icon";
 import ReactIcon from "~/components/icons/react-icon";
@@ -6,6 +5,8 @@ import GrpcIcon from "~/components/icons/grpc-icon";
 import {DockerIcon} from "~/components/icons/docker-icon";
 import React from "react";
 import {KotlinIcon} from "~/components/icons/kotlin-icon";
+import {CSharpIcon} from "~/components/icons/csharp-icon";
+import {UnityIcon} from "~/components/icons/unity-icon";
 
 const simpleCloudProject = {
     timeframe: "2024 - now",
@@ -37,8 +38,8 @@ const uneasyTravelProject = {
     video: true,
     codeLink: "https://github.com/dayyeeet/spacegame",
     tools: [
-        {name: "Unity", icon: () => <ReactIcon/>},
-        {name: "C#", icon: () => <ReactIcon/>},
+        {name: "C#", icon: () => <CSharpIcon/>},
+        {name: "Unity", icon: () => <UnityIcon/>},
     ],
     description: "In this Unity 2024 summer game jam game, you are stranded in the vastness of space, " +
         "where your only means of survival is to gather flowers scattered across unknown planets. " +
@@ -50,13 +51,8 @@ const uneasyTravelProject = {
 
 
 export default function Projects() {
-    return <div id={"projects"} className={"py-5 px-5"}>
-        <TracingBeam className={"max-h-screen"}>
-            <div className={"space-y-6"}>
-                <Project {...simpleCloudProject} />
-                <Project {...uneasyTravelProject} />
-            </div>
-
-        </TracingBeam>
+    return <div id={"projects"} className={"py-5 px-5 sm:px-20 space-y-6 grid grid-cols-1 md:grid-cols-2 sm:gap-20"}>
+        <Project {...simpleCloudProject} />
+        <Project {...uneasyTravelProject} />
     </div>
 }
