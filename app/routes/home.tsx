@@ -1,7 +1,7 @@
 import type {Route} from "./+types/home";
 import Hero from "~/components/hero";
 import {FloatingNav} from "~/components/ui/floating-navbar";
-import {BookMarkedIcon, BriefcaseBusinessIcon, BuildingIcon, ContactIcon, FolderGit2Icon} from "lucide-react";
+import {DnaIcon, LayersIcon, SendIcon} from "lucide-react";
 import Projects from "~/components/projects";
 import {Separator} from "~/components/ui/separator";
 
@@ -15,15 +15,15 @@ export function meta({}: Route.MetaArgs) {
 const navItems = [{
     name: "About",
     link: "about",
-    icon: <BookMarkedIcon className={"w-10 text-foreground"}/>,
+    icon: <DnaIcon className={"w-10 text-foreground"}/>,
 }, {
     name: "Projects",
     link: "projects",
-    icon: <FolderGit2Icon className={"w-10 text-foreground"}/>,
+    icon: <LayersIcon className={"w-10 text-foreground"}/>,
 }, {
     name: "Contact",
     link: "contact",
-    icon: <ContactIcon className={"w-10 text-foreground"}/>,
+    icon: <SendIcon className={"w-10 text-foreground"}/>,
 }]
 
 export default function Home() {
