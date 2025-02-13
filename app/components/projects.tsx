@@ -9,6 +9,7 @@ import {CSharpIcon} from "~/components/icons/csharp-icon";
 import {UnityIcon} from "~/components/icons/unity-icon";
 import {SearchInput} from "~/components/ui/search-input";
 import {search} from "~/lib/search";
+import {EnvoyIcon} from "~/components/icons/envoy-icon";
 
 const simpleCloudProject = {
     timeframe: "2024 - now",
@@ -22,6 +23,7 @@ const simpleCloudProject = {
         {name: "GRPC", icon: () => <GrpcIcon/>},
         {name: "Kotlin", icon: () => <KotlinIcon/>},
         {name: "Docker", icon: () => <DockerIcon/>},
+        {name: "Envoy Proxy", icon: () => <EnvoyIcon/>},
     ],
     description: "simplecloud.app is a modern game-server network orchestration (eco)system " +
         "designed to easily create Minecraft networks. It can automatically scale game-servers up and down " +

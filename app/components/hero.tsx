@@ -1,4 +1,4 @@
-import {FluidBackground} from "~/components/shader/background-shader";
+import {PseudoCode} from "~/components/ui/pseudo-code";
 
 export default function Hero() {
     return <div id={"about"} className={"w-full h-screen flex items-center justify-center overflow-hidden"}>
@@ -6,14 +6,50 @@ export default function Hero() {
         <div
             className={"w-full h-full bg-linear-to-b from-transparent via-transparent to-background absolute top-0 left-0"}/>
         <div className={"w-full z-20 space-y-6 px-10 sm:px-20"}>
-            <div className={"text-foreground text-5xl xl:text-7xl tracking-tight font-bold"}>
-                Hi, I&apos;m David Cappell
-            </div>
-            <div className={"text-foreground/70 text-2xl xl:text-3xl tracking-tight max-w-3/4 sm:max-w-2/3 md:max-w-1/2"}>
-                A computer science student specializing in full-stack development with React and strong focus on backend
-                technologies.
-            </div>
+            <PseudoCode pre={["bg-sky-600 w-24"]} post={["bg-sky-600 w-24"]} children={((start) => (
+                <div className={"space-y-4 relative"}>
+                    <PseudoCode className={"sm:pb-0"} pre={["bg-amber-600 w-32", "bg-red-400 w-42", "bg-amber-600 w-8"]}
+                                post={["bg-amber-600 w-32"]} startDelay={start} children={(start) => (
+                        <div className={"py-5 h-[18rem] sm:h-auto"}>
+                            <div className={"absolute w-[80vw] right-0 mx-5 sm:mx-auto sm:relative"}>
+                                <div className={"text-foreground text-5xl xl:text-7xl tracking-tight font-semibold"}>
+                                    Hi, I&apos;m <span
+                                    className={"underline decoration-sky-500 font-bold"}>David Cappell</span>
+                                </div>
+                                <div
+                                    className={"text-foreground/70 text-2xl mt-5 xl:text-3xl tracking-tight sm:max-w-2/3 md:max-w-1/2"}>
+                                    A computer science and media student specializing in full-stack development with React
+                                    and
+                                    strong
+                                    focus on
+                                    backend
+                                    technologies.
+                                </div>
+                            </div>
+                        </div>
+                    )}/>
+                    <PseudoCode startDelay={0.7 + (start ?? 0)} pre={["bg-sky-600 w-28", "bg-teal-700 w-64", "bg-sky-600 w-8"]}/>
+                </div>
+            ))}/>
         </div>
     </div>
 
 }
+
+/**
+ * <PseudoCode pre={["bg-amber-600 w-32", "bg-red-400 w-42", "bg-amber-600 w-8"]} post={["bg-amber-600 w-32"]}>
+ *                     <div className={"py-5"}>
+ *                         <div className={"text-foreground text-5xl xl:text-7xl tracking-tight font-semibold"}>
+ *                             Hi, I&apos;m <span className={"underline decoration-sky-500 font-bold"}>David Cappell</span>
+ *                         </div>
+ *                         <div
+ *                             className={"text-foreground/70 text-2xl mt-5 xl:text-3xl tracking-tight max-w-3/4 sm:max-w-2/3 md:max-w-1/2"}>
+ *                             A computer science and media student specializing in full-stack development with React and strong
+ *                             focus on
+ *                             backend
+ *                             technologies.
+ *                         </div>
+ *                     </div>
+ *                 </PseudoCode>
+ *                 <PseudoCode pre={["bg-sky-600 w-28", "bg-teal-700 w-64", "bg-sky-600 w-4"]}/>
+ */

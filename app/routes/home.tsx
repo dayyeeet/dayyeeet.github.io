@@ -32,5 +32,6 @@ export default function Home() {
         <Hero/>
         <Separator className={"mb-10"} orientation={"horizontal"}/>
         <Projects/>
+        <Separator className={"mb-10"} orientation={"horizontal"}/>
     </div>;
 }
