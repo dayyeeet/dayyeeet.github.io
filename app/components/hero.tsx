@@ -18,7 +18,8 @@ export default function Hero() {
                                 </div>
                                 <div
                                     className={"text-foreground/70 text-2xl mt-5 xl:text-3xl tracking-tight sm:max-w-2/3 md:max-w-1/2"}>
-                                    A computer science and media student specializing in full-stack development with React
+                                    A computer science and media student specializing in full-stack development with
+                                    React
                                     and
                                     strong
                                     focus on
@@ -28,28 +29,10 @@ export default function Hero() {
                             </div>
                         </div>
                     )}/>
-                    <PseudoCode startDelay={0.7 + (start ?? 0)} pre={["bg-sky-600 w-28", "bg-teal-700 w-64", "bg-sky-600 w-8"]}/>
+                    <PseudoCode startDelay={0.7 + (start ?? 0)}
+                                pre={["bg-sky-600 w-28", "bg-teal-700 w-64", "bg-sky-600 w-8"]}/>
                 </div>
             ))}/>
         </div>
     </div>
-
 }
-
-/**
- * <PseudoCode pre={["bg-amber-600 w-32", "bg-red-400 w-42", "bg-amber-600 w-8"]} post={["bg-amber-600 w-32"]}>
- *                     <div className={"py-5"}>
- *                         <div className={"text-foreground text-5xl xl:text-7xl tracking-tight font-semibold"}>
- *                             Hi, I&apos;m <span className={"underline decoration-sky-500 font-bold"}>David Cappell</span>
- *                         </div>
- *                         <div
- *                             className={"text-foreground/70 text-2xl mt-5 xl:text-3xl tracking-tight max-w-3/4 sm:max-w-2/3 md:max-w-1/2"}>
- *                             A computer science and media student specializing in full-stack development with React and strong
- *                             focus on
- *                             backend
- *                             technologies.
- *                         </div>
- *                     </div>
- *                 </PseudoCode>
- *                 <PseudoCode pre={["bg-sky-600 w-28", "bg-teal-700 w-64", "bg-sky-600 w-4"]}/>
- */

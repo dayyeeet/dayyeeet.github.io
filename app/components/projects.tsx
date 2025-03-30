@@ -12,7 +12,7 @@ import {search} from "~/lib/search";
 import {EnvoyIcon} from "~/components/icons/envoy-icon";
 
 const simpleCloudProject = {
-    timeframe: "2024 - now",
+    timeframe: "12/2023 - Now",
     name: "simplecloud.app",
     link: "https://simplecloud.app",
     media: "https://github.com/simplecloudapp/branding/blob/main/images/og/simplecloud.png?raw=true",
@@ -35,7 +35,7 @@ const simpleCloudProject = {
 } satisfies ProjectProps
 
 const uneasyTravelProject = {
-    timeframe: "2024",
+    timeframe: "06/2024",
     name: "Uneasy Travel",
     link: "https://github.com/dayyeeet/spacegame",
     media: "https://production-thexplace-upload-assets.s3.us-west-1.amazonaws.com/next-s3-uploads/undefined/2fb43af0-6811-488e-82f9-4b12abb7a4b5.mp4",
@@ -53,7 +53,25 @@ const uneasyTravelProject = {
     role: "Project Leader, World Generation",
 } satisfies ProjectProps
 
-const projectList = [simpleCloudProject, uneasyTravelProject]
+const chargerGameProject = {
+    timeframe: "10/2024 - 01/2025",
+    name: "Charger",
+    link: "https://github.com/dayyeeet/charger-game",
+    media: "https://github.com/dayyeeet/charger-game/blob/main/banner.png?raw=true",
+    codeLink: "https://github.com/dayyeeet/charger-game",
+    tools: [
+        {name: "C#", icon: () => <CSharpIcon/>},
+    ],
+    description: "Charger is a fast-paced top-down shooter where players " +
+        " control a robot equipped with melee and ranged weapons. " +
+        "Explore procedurally generated levels, strategize your attacks, " +
+        "and manage your energy-based health system " +
+        "to survive against powerful enemies." +
+        "This game was developed as part of a university software engineering course.",
+    role: "Project Leader, World Generation",
+} satisfies ProjectProps
+
+const projectList = [simpleCloudProject, chargerGameProject, uneasyTravelProject]
 
 
 export default function Projects() {

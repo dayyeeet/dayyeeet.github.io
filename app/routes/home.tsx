@@ -20,10 +20,6 @@ const navItems = [{
     name: "Projects",
     link: "projects",
     icon: <LayersIcon className={"w-10 text-foreground"}/>,
-}, {
-    name: "Contact",
-    link: "contact",
-    icon: <SendIcon className={"w-10 text-foreground"}/>,
 }]
 
 export default function Home() {
