@@ -10,6 +10,10 @@ import {UnityIcon} from "~/components/icons/unity-icon";
 import {SearchInput} from "~/components/ui/search-input";
 import {search} from "~/lib/search";
 import {EnvoyIcon} from "~/components/icons/envoy-icon";
+import {CPlusPlusIcon} from "~/components/icons/cplusplus-icon";
+import {HTMLIcon} from "~/components/icons/html-icon";
+import {CSSIcon} from "~/components/icons/css-icon";
+import {JavaScriptIcon} from "~/components/icons/javascript-icon";
 
 const simpleCloudProject = {
     timeframe: "12/2023 - Now",
@@ -71,7 +75,26 @@ const chargerGameProject = {
     role: "Project Leader, World Generation",
 } satisfies ProjectProps
 
-const projectList = [simpleCloudProject, chargerGameProject, uneasyTravelProject]
+const smartHomeProject = {
+    timeframe: "09/2020 - 11/2021",
+    name: "LED Stripe Controller",
+    link: "https://github.com/dayyeeet/led-stripe-controller",
+    media: "https://github.com/dayyeeet/led-stripe-controller/raw/master/circuit.png",
+    codeLink: "https://github.com/dayyeeet/led-stripe-controller",
+    tools: [
+        {name: "C++", icon: () => <CPlusPlusIcon/>},
+        {name: "HTML5", icon: () => <HTMLIcon/>},
+        {name: "CSS", icon: () => <CSSIcon/>},
+        {name: "JavaScript", icon: () => <JavaScriptIcon/>},
+    ],
+    description: "A lightweight collection of C++ programs/Arduino scripts " +
+        "to control LED stripes using an Arduino and serial communication with an ESP Wi-Fi microcontroller. " +
+        "This project allows users to send custom color data from a locally hosted website " +
+        "to the Arduino to display effects in real-time. This provides Smart Home functionality in a very barebones way.",
+    role: "Seminar Project",
+} satisfies ProjectProps
+
+const projectList = [simpleCloudProject, chargerGameProject, uneasyTravelProject, smartHomeProject]
 
 
 export default function Projects() {
