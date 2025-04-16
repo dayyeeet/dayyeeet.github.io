@@ -1,5 +1,5 @@
 "use client";
-import React, {useState} from "react";
+import React, {type ReactNode, useState} from "react";
 import {AnimatePresence, motion, useMotionValueEvent, useScroll,} from "framer-motion";
 import {cn} from "~/lib/utils";
 import {Link} from "react-scroll";
@@ -10,7 +10,7 @@ export const FloatingNav = ({
                                 className,
                             }: {
     navItems: {
-        name: string;
+        content: ReactNode;
         link: string;
         icon?: JSX.Element;
     }[];
@@ -69,7 +69,7 @@ export const FloatingNav = ({
                         )}
                     >
                         <span className="block sm:hidden">{navItem.icon}</span>
-                        <span className="hidden sm:block text-md">{navItem.name}</span>
+                        <span className="hidden sm:block text-md">{navItem.content}</span>
                     </Link>
                 ))}
             </motion.div>

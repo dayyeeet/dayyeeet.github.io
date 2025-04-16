@@ -1,4 +1,6 @@
 import {PseudoCode} from "~/components/ui/pseudo-code";
+import GitHubIcon from "~/components/icons/github-icon";
+import {Mail} from "lucide-react";
 
 export default function Hero() {
     return <div id={"about"} className={"w-full h-screen flex items-center justify-center overflow-hidden"}>
@@ -10,7 +12,7 @@ export default function Hero() {
                 <div className={"space-y-4 relative"}>
                     <PseudoCode className={"sm:pb-0"} pre={["bg-amber-600 w-32", "bg-red-400 w-42", "bg-amber-600 w-8"]}
                                 post={["bg-amber-600 w-32"]} startDelay={start} children={(start) => (
-                        <div className={"pb-5 h-[18rem] sm:h-auto"}>
+                        <div className={"pb-5 h-[20rem] sm:h-auto"}>
                             <div className={"absolute w-[80vw] right-0 sm:mx-auto sm:relative"}>
                                 <div className={"text-foreground text-5xl xl:text-7xl tracking-tight font-semibold"}>
                                     Hi, I&apos;m <span
@@ -25,6 +27,14 @@ export default function Hero() {
                                     focus on
                                     backend
                                     technologies.
+                                </div>
+                                <div className={"mt-5 flex items-center justify-start gap-3"}>
+                                    <a href={"https://github.com/dayyeeet"}>
+                                        <GitHubIcon className={"w-8 h-8 text-foreground"}/>
+                                    </a>
+                                    <a href={"mailto:david@cappell.net"}>
+                                        <Mail className={"w-8 h-8 text-foreground"}/>
+                                    </a>
                                 </div>
                             </div>
                         </div>

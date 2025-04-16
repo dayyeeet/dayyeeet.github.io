@@ -72,7 +72,7 @@ const chargerGameProject = {
         "and manage your energy-based health system " +
         "to survive against powerful enemies." +
         "This game was developed as part of a university software engineering course.",
-    role: "Project Leader, World Generation",
+    role: "Project Leader, Game Engine, World Generation",
 } satisfies ProjectProps
 
 const smartHomeProject = {
