@@ -1,35 +1,42 @@
 import {Button} from "~/components/ui/button";
 import type {LucideIcon} from "lucide-react";
 import {
-    type ComponentPropsWithoutRef, forwardRef, type ForwardRefExoticComponent, type PropsWithoutRef,
+    type ComponentPropsWithoutRef,
+    forwardRef,
+    type ForwardRefExoticComponent,
+    type PropsWithoutRef,
     type RefAttributes
 } from "react";
 import {cn} from "~/lib/utils";
 
-type NavLinkAnchorProps = Omit<ComponentPropsWithoutRef<"a">, "href"> & {styled?: boolean} & Pick<NavItemProps, "useSameTab">
+type NavLinkAnchorProps = Omit<ComponentPropsWithoutRef<"a">, "href"> & { styled?: boolean }
 export type NavLinkAnchor = ForwardRefExoticComponent<PropsWithoutRef<NavLinkAnchorProps> & RefAttributes<HTMLAnchorElement>>
 
-type LinkWrappableElement = ((props: { link: NavLinkAnchor }) => JSX.Element)
+export type ComponentNavLinkProps =
+    { link: NavLinkAnchor }
+    & Omit<NavItemProps, "link" | "content" | "useSameBrowserTab">
+type LinkWrappableElement = ((props: ComponentNavLinkProps) => JSX.Element)
 
 type NavItemProps = {
     link: string,
     content: string | LinkWrappableElement,
     icon?: LucideIcon,
-    styled?: boolean,
-    useSameTab?: boolean,
+    useSameBrowserTab?: boolean,
 }
 
-function NavItem({content, useSameTab, link, ...props}: NavItemProps) {
+function NavItem({content, useSameBrowserTab, link, ...props}: NavItemProps) {
     const isStandardLink = typeof content === "string";
     const RenderedChildren = content as LinkWrappableElement
     const linkContent = <>
-        {props.icon && <props.icon className="w-10"/>}
+        {props.icon && <props.icon className="w-10 text-secondary group-focus:text-primary"/>}
         {content}
     </>
-    const Link = forwardRef<HTMLAnchorElement, NavLinkAnchorProps>((props, ref) => (<a target={props.useSameTab ? undefined : "_blank"} rel={"noreferrer"} href={link} {...props} ref={ref} className={cn(props.className, props.styled && "flex items-center gap-2 cursor-pointer")}/>))
+    const Link = forwardRef<HTMLAnchorElement, NavLinkAnchorProps>((props, ref) => (
+        <a target={useSameBrowserTab ? undefined : "_blank"} rel={"noreferrer"} href={link} {...props} ref={ref}
+           className={cn(props.className, props.styled && "flex items-center gap-2 cursor-pointer group")}/>))
     Link.displayName = "Link"
     const usedLink = <Link
-                    styled>
+        styled>
         {linkContent}
     </Link>
     if (isStandardLink) {

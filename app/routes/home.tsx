@@ -18,12 +18,12 @@ const navItems : NavItemProps[] = [{
     content: "About",
     link: "#about",
     icon: DnaIcon,
-    useSameTab: true,
+    useSameBrowserTab: true,
 }, {
     content: "Projects",
     link: "#projects",
     icon: LayersIcon,
-    useSameTab: true,
+    useSameBrowserTab: true,
 }, {
     content: RepoStarCounter,
     link: "https://github.com/dayyeeet/dayyeeet.github.io",
