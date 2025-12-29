@@ -4,9 +4,6 @@ import {Mail} from "lucide-react";
 
 export default function Hero() {
     return <div id={"about"} className={"w-full h-screen flex items-center justify-center overflow-hidden"}>
-        {/**<FluidBackground/>*/}
-        <div
-            className={"w-full h-full bg-linear-to-b from-transparent via-transparent to-background absolute top-0 left-0"}/>
         <div className={"w-full z-20 space-y-6 px-10 sm:px-20"}>
             <PseudoCode pre={["bg-sky-600 w-24"]} post={["bg-sky-600 w-24"]} children={((start) => (
                 <div className={"space-y-4 relative"}>
