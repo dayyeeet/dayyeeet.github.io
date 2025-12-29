@@ -15,6 +15,25 @@ import {HTMLIcon} from "~/components/icons/html-icon";
 import {CSSIcon} from "~/components/icons/css-icon";
 import {JavaScriptIcon} from "~/components/icons/javascript-icon";
 
+const tools = {
+    "React": <ReactIcon/>,
+    "SQL": <SqlIcon/>,
+    "GRPC": <GrpcIcon/>,
+    "Kotlin": <KotlinIcon/>,
+    "C#": <CSharpIcon/>,
+    "JavaScript": <JavaScriptIcon/>,
+    "CSS": <CSSIcon/>,
+    "HTML5": <HTMLIcon/>,
+    "C++": <CPlusPlusIcon/>,
+    "Docker": <DockerIcon/>,
+    "Envoy Proxy": <EnvoyIcon/>,
+    "Unity": <UnityIcon/>,
+}
+type toolId = keyof typeof tools
+function tool(id: toolId) {
+    return {name: id, icon: () => tools[id]};
+}
+
 const simpleCloudProject = {
     timeframe: "12/2023 - Now",
     name: "simplecloud.app",
@@ -22,12 +41,12 @@ const simpleCloudProject = {
     media: "https://github.com/simplecloudapp/branding/blob/main/images/og/simplecloud.png?raw=true",
     codeLink: "https://github.com/simplecloudapp",
     tools: [
-        {name: "React", icon: () => <ReactIcon/>},
-        {name: "SQL", icon: () => <SqlIcon/>},
-        {name: "GRPC", icon: () => <GrpcIcon/>},
-        {name: "Kotlin", icon: () => <KotlinIcon/>},
-        {name: "Docker", icon: () => <DockerIcon/>},
-        {name: "Envoy Proxy", icon: () => <EnvoyIcon/>},
+        tool("React"),
+        tool("SQL"),
+        tool("GRPC"),
+        tool("Kotlin"),
+        tool("Docker"),
+        tool("Envoy Proxy"),
     ],
     description: "simplecloud.app is a modern game-server network orchestration (eco)system " +
         "designed to easily create Minecraft networks. It can automatically scale game-servers up and down " +
@@ -46,8 +65,8 @@ const uneasyTravelProject = {
     video: true,
     codeLink: "https://github.com/dayyeeet/spacegame",
     tools: [
-        {name: "C#", icon: () => <CSharpIcon/>},
-        {name: "Unity", icon: () => <UnityIcon/>},
+        tool("C#"),
+        tool("Unity"),
     ],
     description: "In this Unity 2024 summer game jam game, you are stranded in the vastness of space, " +
         "where your only means of survival is to gather flowers scattered across unknown planets. " +
@@ -64,7 +83,7 @@ const chargerGameProject = {
     media: "https://github.com/dayyeeet/charger-game/blob/main/banner.png?raw=true",
     codeLink: "https://github.com/dayyeeet/charger-game",
     tools: [
-        {name: "C#", icon: () => <CSharpIcon/>},
+        tool("C#"),
     ],
     description: "Charger is a fast-paced top-down shooter where players " +
         " control a robot equipped with melee and ranged weapons. " +
@@ -82,10 +101,10 @@ const smartHomeProject = {
     media: "https://github.com/dayyeeet/led-stripe-controller/raw/master/circuit.png",
     codeLink: "https://github.com/dayyeeet/led-stripe-controller",
     tools: [
-        {name: "C++", icon: () => <CPlusPlusIcon/>},
-        {name: "HTML5", icon: () => <HTMLIcon/>},
-        {name: "CSS", icon: () => <CSSIcon/>},
-        {name: "JavaScript", icon: () => <JavaScriptIcon/>},
+        tool("C++"),
+        tool("HTML5"),
+        tool("CSS"),
+        tool("JavaScript"),
     ],
     description: "A lightweight collection of C++ programs/Arduino scripts " +
         "to control LED stripes using an Arduino and serial communication with an ESP Wi-Fi microcontroller. " +
