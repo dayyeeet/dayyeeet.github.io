@@ -17,7 +17,7 @@ function RepoStarCounter({...props}: ComponentNavLinkProps) {
             <Button asChild variant={"muted"}>
                 <props.link>
                     <StarIcon className={"text-muted-foreground"}/>
-                    {stargazerCount != null && stargazerCount > 2 ?
+                    {stargazerCount != null && stargazerCount >= 2 ?
                         <p className={"inline-block h-full leading-5 text-muted-foreground"}>
                             {stargazerCount > 1000 ? `${stargazerCount / 1000}k` : stargazerCount}
                         </p> : stargazerCount == null && <Skeleton className={"w-5 rounded h-full"}/>}
