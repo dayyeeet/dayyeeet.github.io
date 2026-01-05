@@ -1,10 +1,13 @@
 import type {Route} from "./+types/home";
 import Hero from "~/components/hero";
-import {FloatingNav} from "~/components/ui/floating-navbar";
-import {DnaIcon, LayersIcon} from "lucide-react";
+import {BriefcaseBusinessIcon, DnaIcon, LayersIcon} from "lucide-react";
 import Projects from "~/components/projects";
 import {Separator} from "~/components/ui/separator";
-import GitHubIcon from "~/components/icons/github-icon";
+import type {NavItemProps} from "~/components/ui/nav-item";
+import {Navigation} from "~/components/ui/nav";
+import {RepoStarCounter} from "~/components/ui/repo-starcounter";
+import Tools from "~/components/tools";
+import {SelectedToolsProvider} from "~/lib/tools/useSelectedTools";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -13,22 +16,35 @@ export function meta({}: Route.MetaArgs) {
     ];
 }
 
-const navItems = [{
+const navItems: NavItemProps[] = [{
     content: "About",
-    link: "about",
-    icon: <DnaIcon className={"w-10 text-foreground"}/>,
+    link: "#about",
+    icon: DnaIcon,
+    useSameBrowserTab: true,
+}, {
+    content: "Work",
+    link: "#work",
+    icon: BriefcaseBusinessIcon,
+    useSameBrowserTab: true,
 }, {
     content: "Projects",
-    link: "projects",
-    icon: <LayersIcon className={"w-10 text-foreground"}/>,
-}]
+    link: "#projects",
+    icon: LayersIcon,
+    useSameBrowserTab: true,
+}, {
+    content: RepoStarCounter,
+    link: "https://github.com/dayyeeet/dayyeeet.github.io",
+}
+]
 
 export default function Home() {
-    return <div className={"bg-background"}>
-        <FloatingNav navItems={navItems}/>
+    return <>
+        <Navigation items={navItems}/>
         <Hero/>
+        <SelectedToolsProvider>
+            <Tools/>
+            <Projects/>
+        </SelectedToolsProvider>
         <Separator className={"mb-10"} orientation={"horizontal"}/>
-        <Projects/>
-        <Separator className={"mb-10"} orientation={"horizontal"}/>
-    </div>;
+    </>;
 }

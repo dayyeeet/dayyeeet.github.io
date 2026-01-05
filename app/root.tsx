@@ -14,7 +14,7 @@ export const links: Route.LinksFunction = () => [
     },
     {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
     },
 ];
 
@@ -27,7 +27,7 @@ export function Layout({children}: { children: React.ReactNode }) {
                 <Meta/>
                 <Links/>
             </head>
-            <body className={"bg-background"}>
+            <body className={"bg-background px-5 sm:px-40"}>
                 <TooltipProvider>
                     {children}
                 </TooltipProvider>
