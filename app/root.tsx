@@ -27,7 +27,7 @@ export function Layout({children}: { children: React.ReactNode }) {
                 <Meta/>
                 <Links/>
             </head>
-            <body className={"bg-background"}>
+            <body className={"bg-background px-5 sm:px-40"}>
                 <TooltipProvider>
                     {children}
                 </TooltipProvider>

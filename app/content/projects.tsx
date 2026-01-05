@@ -11,6 +11,7 @@ import {DockerIcon} from "~/components/icons/docker-icon";
 import {EnvoyIcon} from "~/components/icons/envoy-icon";
 import {UnityIcon} from "~/components/icons/unity-icon";
 import type {ProjectProps} from "~/components/project";
+import {TypeScriptIcon} from "~/components/icons/typescript-icon";
 
 export const tools = {
     "React": <ReactIcon/>,
@@ -18,6 +19,7 @@ export const tools = {
     "GRPC": <GrpcIcon/>,
     "Kotlin": <KotlinIcon/>,
     "C#": <CSharpIcon/>,
+    "TypeScript": <TypeScriptIcon/>,
     "JavaScript": <JavaScriptIcon/>,
     "CSS": <CSSIcon/>,
     "HTML5": <HTMLIcon/>,
@@ -39,6 +41,7 @@ const simpleCloudProject = {
     codeLink: "https://github.com/simplecloudapp",
     tools: [
         toolInstance("React"),
+        toolInstance("TypeScript"),
         toolInstance("SQL"),
         toolInstance("GRPC"),
         toolInstance("Kotlin"),

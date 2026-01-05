@@ -32,7 +32,7 @@ function NavItem({content, useSameBrowserTab, link, ...props}: NavItemProps) {
         {content}
     </>
     const Link = forwardRef<HTMLAnchorElement, NavLinkAnchorProps>((props, ref) => (
-        <a target={useSameBrowserTab ? undefined : "_blank"} rel={"noreferrer"} href={link} {...props} ref={ref}
+        <a target={useSameBrowserTab ? undefined : "_blank"} rel={useSameBrowserTab ? "tag" : "noreferrer"} href={link} {...props} ref={ref}
            className={cn(props.className, props.styled && "flex items-center gap-2 cursor-pointer group")}/>))
     Link.displayName = "Link"
     const usedLink = <Link

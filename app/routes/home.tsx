@@ -1,6 +1,6 @@
 import type {Route} from "./+types/home";
 import Hero from "~/components/hero";
-import {DnaIcon, LayersIcon} from "lucide-react";
+import {BriefcaseBusinessIcon, DnaIcon, LayersIcon} from "lucide-react";
 import Projects from "~/components/projects";
 import {Separator} from "~/components/ui/separator";
 import type {NavItemProps} from "~/components/ui/nav-item";
@@ -22,6 +22,11 @@ const navItems: NavItemProps[] = [{
     icon: DnaIcon,
     useSameBrowserTab: true,
 }, {
+    content: "Work",
+    link: "#work",
+    icon: BriefcaseBusinessIcon,
+    useSameBrowserTab: true,
+}, {
     content: "Projects",
     link: "#projects",
     icon: LayersIcon,
@@ -33,7 +38,7 @@ const navItems: NavItemProps[] = [{
 ]
 
 export default function Home() {
-    return <div className={"bg-background px-5 sm:px-40 "}>
+    return <>
         <Navigation items={navItems}/>
         <Hero/>
         <SelectedToolsProvider>
@@ -41,5 +46,5 @@ export default function Home() {
             <Projects/>
         </SelectedToolsProvider>
         <Separator className={"mb-10"} orientation={"horizontal"}/>
-    </div>;
+    </>;
 }
