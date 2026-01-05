@@ -6,11 +6,11 @@ type NavigationProps = {
 
 function Navigation({...props}: NavigationProps) {
     return (
-        <ul className={"w-full px-5 py-5 flex items-center justify-end gap-10"}>
+        <nav className={"w-full px-5 py-5 flex items-center justify-end gap-10 list-none"}>
             {props.items.map((item, index) => {
                 return <li key={index}><NavItem {...item}/></li>
             })}
-        </ul>
+        </nav>
     )
 }
 

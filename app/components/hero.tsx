@@ -1,5 +1,5 @@
 export default function Hero() {
-    return <section id={"about"} className={"w-full space-y-6 overflow-hidden px-5 sm:px-20 pt-5 sm:pt-20 py-2"}>
+    return <section id={"about"} className={"w-full space-y-6 overflow-hidden sm:pt-20 py-5"}>
         <div>
             <h1 className={"text-5xl grow font-bold tracking-tight first:mt-0 text-slate-200"}>
                 David Cappell

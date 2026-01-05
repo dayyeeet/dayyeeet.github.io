@@ -6,6 +6,8 @@ import {Separator} from "~/components/ui/separator";
 import type {NavItemProps} from "~/components/ui/nav-item";
 import {Navigation} from "~/components/ui/nav";
 import {RepoStarCounter} from "~/components/ui/repo-starcounter";
+import Tools from "~/components/tools";
+import {SelectedToolsProvider} from "~/lib/tools/useSelectedTools";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -14,7 +16,7 @@ export function meta({}: Route.MetaArgs) {
     ];
 }
 
-const navItems : NavItemProps[] = [{
+const navItems: NavItemProps[] = [{
     content: "About",
     link: "#about",
     icon: DnaIcon,
@@ -31,11 +33,13 @@ const navItems : NavItemProps[] = [{
 ]
 
 export default function Home() {
-    return <div className={"bg-background"}>
-        <Navigation items={navItems} />
+    return <div className={"bg-background px-5 sm:px-40 "}>
+        <Navigation items={navItems}/>
         <Hero/>
-        <Separator className={"mb-10"} orientation={"horizontal"}/>
-        <Projects/>
+        <SelectedToolsProvider>
+            <Tools/>
+            <Projects/>
+        </SelectedToolsProvider>
         <Separator className={"mb-10"} orientation={"horizontal"}/>
     </div>;
 }
